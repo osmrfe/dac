@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalma Auto Care (DAC) | Prémium Autókozmetika & Detailing Műhely</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00b4d8;
+            --accent-teal: #008299;
+            --dark-bg: #0f141c;
+            --card-bg: #18202c;
+            --card-hover: #1f2b3c;
+            --text-light: #f8f9fa;
+            --text-muted: #adb5bd;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 20, 28, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 180, 216, 0.25);
+            padding: 5px 0;
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        .logo-img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 10px rgba(0, 180, 216, 0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .phone-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-teal));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .phone-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(15, 20, 28, 0.75), rgba(15, 20, 28, 0.95)), url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* LÁTVÁNYOS MÉRÉKŰ LOGÓ KIALAKÍTÁS A HERO MÉLYÉN */
+        .hero-logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .hero-logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.4) 0%, rgba(0, 180, 216, 0) 70%);
+            filter: blur(20px);
+            z-index: 1;
+            animation: pulseGlow 4s infinite alternate ease-in-out;
+        }
+
+        .hero-logo-img {
+            position: relative;
+            z-index: 2;
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(0, 180, 216, 0.4));
+            transition: var(--transition);
+        }
+
+        .hero-logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            100% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(1.15);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, #00b4d8, #90e0ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-teal);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--text-light);
+            padding: 14px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* MIÉRT MI? (WHY US) SECTION */
+        .why-us {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            font-size: 1.1rem;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            background: var(--card-hover);
+        }
+
+        .why-card i {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* DETAILED SERVICES SECTION */
+        .services-deep {
+            background: #131924;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .service-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-row.reverse {
+            direction: rtl;
+        }
+
+        .service-row.reverse .service-content {
+            direction: ltr;
+        }
+
+        .service-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .service-content h3 span {
+            color: var(--primary-color);
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .service-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .service-list-item i {
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .service-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 180, 216, 0.2);
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--dark-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 130px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-teal);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #090c12;
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media(max-width: 968px) {
+            .logo-img {
+                height: 50px;
+            }
+            .hero-logo-img {
+                height: 90px;
+            }
+            .service-row, .service-row.reverse, .contact-grid {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGÁCIÓ -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="dac.png" alt="Dalma Auto Care (DAC) Logó" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Főoldal</a></li>
+                <li><a href="#whyus">Miért mi?</a></li>
+                <li><a href="#services">Szolgáltatások</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+            <!-- Telefonszám beágyazás gomb -->
+            <a href="tel:+36303030303" class="phone-btn">
+                <i class="fas fa-phone-alt"></i> +36 30 303 0303
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            
+            <!-- MENŐ, KÖZÉPPONTI LÁTVÁNYOS LOGÓ BEÁGYAZÁS -->
+            <div class="hero-logo-wrapper">
+                <div class="hero-logo-glow"></div>
+                <img src="dac.png" alt="Dalma Auto Care" class="hero-logo-img">
+            </div>
+
+            <h1>Ahol az autódból <span>műremek</span> születik</h1>
+            <p>Prémium kategóriás autókozmetika és részletgazdag Interior/Exterior Detailing a legmagasabb szakmai elvárások szerint.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Időpontfoglalás</a>
+                <a href="#services" class="btn-outline">Részletes Szolgáltatások</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIÉRT VAGYUNK KÜLÖNBEK? (WHY US) -->
+    <section id="whyus" class="why-us">
+        <h2 class="section-title">Miért jobb a <span>DAC</span>, mint a többi?</h2>
+        <p class="section-subtitle">Nem egyszerű autómosó vagyunk. Mi a precíziós felületkezelés és a prémium ápolás specialistái vagyunk, ami az alábbiakkal tesz minket egyedivé:</p>
+        
+        <div class="why-grid">
+            <div class="why-card">
+                <i class="fas fa-gem"></i>
+                <h3>Svájci & Olasz Prémium Vegyszerek</h3>
+                <p>Nem használunk olcsó, maró hatású szereket. Kizárólag ph-semleges, professzionális, csúcskategóriás kozmetikumokkal dolgozunk, amelyek óvják a lakkot és a kárpitot.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Részletgazdag "Detailing" Megközelítés</h3>
+                <p>Nálunk nincs futószalag. Mikroszálas ecsetekkel, gőzzel és fogorvosi precizitással tisztítjuk meg a legeldugottabb szellőzőket, fugákat és illesztéseket is.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Hosszú Távú Védelmi Rendszerek</h3>
+                <p>Nemcsak tisztítunk, hanem védelmet is építünk. Prémium kerámia bevonataink és bőrtápláló szereink hónapokig vagy évekig tartó védelmet biztosítanak.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-award"></i>
+                <h3>Szenvedély és Garancia</h3>
+                <p>Minden autót sajátunkként kezelünk. Maximális odafigyeléssel és garanciával végezzük a munkánkat, hogy az eredmény lenyűgöző legyen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RÉSZLETES SZOLGÁLTATÁSOK (DEEP DIVE) -->
+    <section id="services" class="services-deep">
+        <div class="container">
+            
+            <!-- BELSŐ TISZTÍTÁS (INTERIOR DETAILING) -->
+            <div class="service-row">
+                <div class="service-content">
+                    <h3><span>Belső Részletgazdag</span> Tisztítás & Fertőtlenítés</h3>
+                    <p>Az autó beltere az a hely, ahol a legtöbb időt töltöd. A DAC-nál a belső tér ápolása nem csupán porszívózás, hanem egy komplett megújulási folyamat:</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Mély kárpittisztítás & Extrakció:</strong> Forróvizes vizes kivonásos technológia, amely a szálak mélyéről is kioldja a makacs szennyeződéseket és allergéneket.</div>
+                        </div>
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Bőrápolás & Táplálás:</strong> Speciális olasz bőrtisztítók és mélyen hidratáló balzsamok használata, amelyek megóvják a bőrt a kiszáradástól és repedéstől.</div>
+                        </div>
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Ózonos Sterilizálás:</strong> Teljes körű baktérium-, vírus- és szagmentesítés a szellőzőrendszerben is a tökéletesen friss levegőért.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://autokozmetika.sebesi.hu/bundles/autokozmetikaportal/img/karpit-porszivo2.jpg?v=7" alt="Belső részletgazdag tisztítás">
+                </div>
+            </div>
+
+            <!-- KÜLSŐ TISZTÍTÁS ÉS VÉDELEM (EXTERIOR DETAILING) -->
+            <div class="service-row reverse">
+                <div class="service-content">
+                    <h3><span>Külső Mosás</span>, Polírozás & Kerámia</h3>
+                    <p>A külső felületek védelme és ragyogása a fázisok precíz betartásán múlik. A DAC-nál a külső detailing a következő szintre emeli autód megjelenését:</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Karcmentes kétvödrös mosás:</strong> Prémium samponok és prémium szőrös mosókesztyűk alkalmazása a hologrammentes tisztaságért.</div>
+                        </div>
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Kémiai és Mechanikai Dekontamináció:</strong> Vaspor- és kátrányeltávolítás, clay-bar agyagozás a lakkfelület tökéletesen sima tapintásáért.</div>
+                        </div>
+                        <div class="service-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Többlépcsős Polírozás & Kerámia:</strong> A mikro-karcok eltávolítása után nanotechnológiás kerámia bevonat felvitele az extrém hidrofób hatásért és tükörfényért.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://autokozmetika.sebesi.hu/bundles/autokozmetikaportal/img/keramia-bevonat-red-front.jpg?v=7" alt="Külső detailing és polírozás">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KAPCSOLAT -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Lépj velünk <span>kapcsolatba</span></h2>
+        <p class="section-subtitle">Foglalj időpontot még ma, vagy érdeklődj egyedi szolgáltatásainkról telefonon vagy e-mailben!</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telefon</h4>
+                        <!-- Kattintható telefonszám beágyazás -->
+                        <p><a href="tel:+36303030303">+36 30 303 0303</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>E-mail cím</h4>
+                        <!-- Kattintható e-mail beágyazás -->
+                        <p><a href="mailto:DAC@dac.hu">DAC@dac.hu</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Helyszín</h4>
+                        <p>Budapest / Magyarország (Prémium Műhely)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Az Ön neve" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Az Ön e-mail címe" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Telefonszáma" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Milyen szolgáltatásra hozná autóját? (pl. Belső kárpittisztítás, kerámia bevonat)" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Ajánlatkérés / Időpontfoglalás</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Dalma Auto Care (DAC). Minden jog fenntartva. | Prémium Autókozmetika</p>
+    </footer>
+
+</body>
+</html>
